@@ -32,6 +32,8 @@ abstract class ComExecutable implements Type<Type> {
 	private Type[] argValues;
 
 	private ExecStack stack;
+	
+	private Arguments args;
 
 	@Override
 	public Class<? extends Type> type() {
@@ -59,23 +61,12 @@ abstract class ComExecutable implements Type<Type> {
 	 */
 	protected abstract Type[] getArgNames();
 
-	/**
-	 * Remember to override this function if evaluateBody has not been overridden.
-	 * 
-	 * @return
-	 */
-//	protected _List getBody() {
-//		return new _List();
-//	};
-
 	protected void bindArgs() {
-		Type[] args = getArgNames();
-		assert args.length == argValues.length;
-		for (int i = 0; i < args.length; i++) {
-			this.stack.bind(((_Variable) args[i]).name(), argValues[i]);
-		}
+		this.args = new Arguments(getArgNames());
+		this.args.bind(argValues);
 	}
 
 	protected abstract Type evaluateBody();
-
+	
+	
 }
