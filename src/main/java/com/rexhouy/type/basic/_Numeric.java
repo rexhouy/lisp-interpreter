@@ -19,4 +19,8 @@ public class _Numeric implements Type<Integer> {
 		return _Numeric.class;
 	}
 	
+	@Override
+	public String toString() {
+		return String.valueOf(value);
+	}
 }

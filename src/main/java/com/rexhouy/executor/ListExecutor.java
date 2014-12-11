@@ -35,7 +35,7 @@ public class ListExecutor implements Executor {
 		if (code.type() == _List.class) {
 			return processList((_List) code);
 		} else if (code.type() == _Variable.class) {
-			return (Type) code.evaluate();
+			return evaluate((Type)code.evaluate()); // Make sure to get the exact value.
 		}
 		return code;
 	}

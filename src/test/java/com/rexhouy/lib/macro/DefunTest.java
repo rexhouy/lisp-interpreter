@@ -14,6 +14,9 @@ public class DefunTest {
 
 	Defun defun = new Defun();
 	
+	/**
+	 * (defun increase (a) (+ a 1))
+	 */
 	@Test
 	public void testEvaluate() {
 		_Variable name = new _Variable("increase");

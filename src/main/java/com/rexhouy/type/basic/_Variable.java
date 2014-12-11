@@ -25,6 +25,9 @@ public class _Variable implements Type<Type> {
 		return _Variable.class;
 	}
 
-	
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 }

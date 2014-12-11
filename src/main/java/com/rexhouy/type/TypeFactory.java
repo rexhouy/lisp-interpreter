@@ -2,11 +2,11 @@ package com.rexhouy.type;
 
 import java.util.regex.Pattern;
 
-import com.rexhouy.env.Context;
 import com.rexhouy.env._System;
 import com.rexhouy.type.basic._Bool;
 import com.rexhouy.type.basic._Numeric;
 import com.rexhouy.type.basic._String;
+import com.rexhouy.type.basic._Symbol;
 import com.rexhouy.type.basic._Variable;
 
 
@@ -21,6 +21,9 @@ public class TypeFactory {
 		}
 		if (isBool(value)) {
 			return new _Bool(value);
+		}
+		if (isSymbol(value)) {
+			return new _Symbol(value);
 		}
 		Type<?> ret = _System.getContext().find(value);
 		return ret == null ? new _Variable(value) : ret;
@@ -38,4 +41,7 @@ public class TypeFactory {
 		return value.equals("T") || value.equals("nil");
 	}
 	
+	static boolean isSymbol(String value) {
+		return value.startsWith(":");
+	}
 }

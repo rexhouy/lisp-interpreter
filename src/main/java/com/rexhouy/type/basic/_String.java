@@ -20,4 +20,9 @@ public class _String implements Type<String> {
 		return _String.class;
 	}
 	
+	@Override
+	public String toString() {
+		return "\"" + value + "\"";
+	}
+	
 }

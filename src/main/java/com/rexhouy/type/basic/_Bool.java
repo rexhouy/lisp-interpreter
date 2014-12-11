@@ -19,5 +19,11 @@ public class _Bool implements Type<Boolean> {
 	public Class<? extends Type> type() {
 		return _Bool.class;
 	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(value);
+	}
+	
 	
 }

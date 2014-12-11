@@ -29,5 +29,10 @@ public class _Symbol implements Type<_Symbol> {
 	public String name() {
 		return value;
 	}
+	
+	@Override
+	public String toString() {
+		return ":"+value;
+	}
 
 }

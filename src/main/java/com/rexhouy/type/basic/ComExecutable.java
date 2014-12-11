@@ -36,11 +36,6 @@ abstract class ComExecutable implements Type<Type> {
 	private Arguments args;
 
 	@Override
-	public Class<? extends Type> type() {
-		return _Function.class;
-	}
-
-	@Override
 	public Type<?> evaluate(Type... argValues) {
 		try {
 			// Execute function in a new stack.
@@ -67,6 +62,9 @@ abstract class ComExecutable implements Type<Type> {
 	}
 
 	protected abstract Type evaluateBody();
-	
-	
+
+	protected Arguments getArgs() {
+		return args;
+	}
+
 }
